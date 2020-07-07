@@ -1,15 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-
-//import Firebase from './imports/data/Firebase';
-import FirebaseContext from './imports/contexts/FirebaseContext';
+//import React from 'react'
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
 import * as firebase from 'firebase/app';
+
+// Add the Firebase services that you want to use
+
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
+//import { firestore } from 'firebase';
+// Get the `FieldValue` object
+//import { is } from 'immutable';
 
 // Initialize Firebase
 const prodConfig = {
@@ -36,16 +37,13 @@ var devConfig = {
 
 const config = process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
 
-firebase.initializeApp(config);
+class Firebase {
+	constructor() {
+		firebase.initializeApp(config);
+		this.auth = firebase.auth();
+		this.db = firebase.firestore();
+		this.storage = firebase.storage();
+	}
+}
 
-ReactDOM.render(
-	<FirebaseContext.Provider value={firebase}>
-		<App />
-	</FirebaseContext.Provider>,
-	document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+export default Firebase;
