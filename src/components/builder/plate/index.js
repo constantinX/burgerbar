@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderedItem from './orderedItem';
+import OrderedItem from '../order';
 
 function MyPlate({ orders, user, order, removefromDB, removefromOrder }) {
 	return (
