@@ -13,7 +13,7 @@ import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Grid from '@material-ui/core/Grid';
-import Ingredients from '../components/ingredient';
+import Ingredients from '../components/builder/ingredient';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
